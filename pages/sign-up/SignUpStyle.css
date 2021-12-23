@@ -1,0 +1,218 @@
+﻿p, button {
+    overflow: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+    a:hover {
+        color: white;
+    }
+
+.links {
+    display: inline-block;
+    margin-left: 12px;
+}
+
+.bi {
+    color: white;
+}
+
+
+.img {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.links img {
+    max-width: 40px;
+    max-height: 20px;
+}
+
+.len span {
+    float: left;
+    margin-left: 4px;
+}
+
+.colorback {
+    background-color: #92bd61;
+}
+
+
+footer li {
+    list-style-type: none;
+}
+
+    footer li:hover {
+        list-style-type: none;
+        color: white;
+    }
+
+.socimg {
+    float: left;
+    width: 30px;
+    height: 30px;
+}
+
+
+
+
+
+
+
+
+.main {
+    font-family: montserrat;
+    margin: auto;
+    background-color: white; /*#92bd61;*/
+    /*#F0FFF0;*/
+    border-radius: 10px;
+    margin: 0 0 30px 0;
+}
+
+
+h1 {
+    margin: 80px,0;
+    text-align: center;
+    padding: 5px 0 20px 0;
+    border-bottom: 1px solid silver;
+}
+
+.form {
+    padding: 0 80px;
+    box-sizing: border-box;
+}
+
+    .form .text_filed {
+        position: relative;
+        border-bottom: 2px solid #adadad;
+        margin: 20px 0 0px 0;
+    }
+
+.text_filed input {
+    width: 100%;
+    padding: 0 5px;
+    height: 40px;
+    font-size: 16px;
+    border: none;
+    background: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.text_filed label {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    color: #adadad;
+    transform: translateY(-50%);
+    font-size: 16px;
+    pointer-events: none;
+    transition: .5s;
+    font-family: montserrat;
+}
+
+.text_filed span::before {
+    content: ' ';
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: #228B22;
+    transition: .5s;
+}
+
+.text_filed input:focus ~ label,
+.text_filed input:valid ~ label {
+    top: -5px;
+    color: #228B22;
+}
+
+
+.text_filed input:focus ~ span::before,
+.text_filed input:valid ~ span::before {
+    width: 100%;
+}
+
+input[type="submit"] {
+    width: 100%;
+    height: 50px;
+    border: 1px solid;
+    background: #92bd61;
+    border-radius: 25px;
+    font-size: 15px;
+    color: black;
+    font-weight: 700;
+    outline: none;
+    margin: 30px 0;
+}
+
+    input[type="submit"]:hover {
+        color: white;
+        /* #92bd61;*/
+        /* border-block-color: #228B22;*/
+    }
+
+.check-text {
+    text-align: left;
+    margin: 30px 0 5px 0;
+    font-family: montserrat;
+}
+
+#text1 {
+    display: block;
+    color: #000;
+    font-weight: 300;
+    font-style: italic;
+    position: relative;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background: #f1f1f1;
+}
+
+#text2 {
+    color: #000;
+    font-weight: 300;
+    font-style: italic;
+    position: relative;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background: #f1f1f1;
+}
+
+
+
+#message {
+    display: none;
+    background: #f1f1f1;
+    color: #000;
+    position: relative;
+    margin-top: 10px;
+}
+
+    #message > div {
+        font-family: montserrat;
+    }
+
+.valid {
+    color: green;
+}
+
+    .valid:before {
+        position: relative;
+        content: "✔";
+    }
+
+.invalid {
+    color: red;
+}
+
+    .invalid:before {
+        position: relative;
+        /*left: -35px;*/
+        content: "✖";
+    }
