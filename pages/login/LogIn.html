@@ -158,17 +158,23 @@
     <div class="container-fluid ">
         <div class="mt-2 bg-light pt-3">
             <div class="row">
-                <div class="col-md-8 offset-md-2 ">
+                <div class="col-md-6 offset-md-3 text-center">
                     <div class="row text-center ">
                         <div class="main">
                             <h1 class="mb-2">Login</h1>
 
-                            <form method="post" class="form" id="form" onkeydown="validateEmail()">
+                            <div id="message1">
+                                <p>
+                                    Please fill in all the fields.
+                                </p>
+                            </div>
+
+                            <form method="post" class="form" id="form" onkeyup="validateEmail()">
                                 <div>
                                     <div class="text_filed form-group">
                                         <input type="text" name="username" id="email" required>
                                         <span></span>
-                                        <label>Your emal</label>
+                                        <label>Your email</label>
                                     </div>
                                     <div>
                                         <span id="text1"></span>
@@ -181,7 +187,7 @@
                                         <label>Password</label>
                                     </div>
 
-                                    <div id="message">
+                                    <div id="message2">
                                         <div id="letter" class="invalid">
                                             Contains letter
                                         </div>
@@ -203,9 +209,9 @@
                                     </label>
                                 </div>
                                 <label id="error-label"></label>
-                                <input type="submit" value="Log in" id="login" />
+                                <input type="submit" value="Log in" id="login" onclick="validAll()"/>
                                 <div class="signup_link">
-                                    Don't have an account? <a href="#"> Sign Up</a>
+                                    Don't have an account? <a href="../sign-up\SignUp.html"> Sign Up</a>
                                 </div>
                             </form>
 
