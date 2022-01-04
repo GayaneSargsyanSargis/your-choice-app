@@ -83,9 +83,10 @@ $(document).ready(function(){
     	$("#close").click(function(){
     		$(this).closest(".tableInfo").css("display","none");
     		$("#info-column td").remove();
-    	})
-    	
+        })
+           	
 
     })
+
 
 })

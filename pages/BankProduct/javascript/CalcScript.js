@@ -11,16 +11,18 @@ let click = false;
         $("#loanCurrencyTypeHelp").text("");
         
     }
-
+      //А=К*(П/(1+П)-М-1), где К – сумма кредита, П – процентная ставка, 
+      //М – количество месяцев.Такой прием используют при подсчете выплат по ипотеке и потребительским займам.
     let isTrue =  false;
     let inputType = $("#inputType").val();
     let inputAmount =$("#inputAmount").val();
     let inputPercent = $("#inputPercent").val();
     let inputPeriod = $("#inputPeriod").val();
     let inputCurrencyType = $("#inputCurrencyType").val();
-    let resultText =  $(".result span");
-    resultText.css("display","none");
-
+    let MontrhlyInterest = inputPercent / 12 / 100;
+    let GeneralInterest = (1 + MontrhlyInterest) ^ inputPeriod;
+    let resultText = $(".result span");
+      resultText.css("display", "none");
     let currency;
 
     switch (inputCurrencyType) {
@@ -64,18 +66,20 @@ let click = false;
          isTrue = true;
     }
 
-    if(!isTrue){
-       resultText.css({"font-size":"13px","display":"block"});
-       resultText.text("Ամսական վճարման չափը կկազմի "+ currency);
-    }
+      if (!isTrue) {          
+          
+           let monthlyPayment = (s,p,n) => {
+           p/=1200
+           return s*p/(1-Math.pow(1+p,-n));     
+           }
+          
+          let output = Math.round( monthlyPayment(inputAmount, inputPercent, inputPeriod));                
+     
+        resultText.css({ "font-size": "13px", "display": "block" });
+          resultText.text("Ամսական վճարման չափը կկազմի " + output + currency);
+      }
 
    click =  true;
-  })
-
-
-  function GetErrorMessage(x){
-    x.text("Please enter the valid field");
-    x.css("color","red"); 
- }
-
+  })    
+    
 })
