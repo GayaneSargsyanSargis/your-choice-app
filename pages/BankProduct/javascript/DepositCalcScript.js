@@ -64,9 +64,41 @@ let click = false;
          isTrue = true;
     }
 
-    if(!isTrue){
-       resultText.css({"font-size":"13px","display":"block"});
-       resultText.text("Վճարվող տոկոսագումարը կկազմի "+ currency);
+      if (!isTrue) {
+          if (inputType == 3) {
+              let monthlyPayment = (s, p, n) => {
+                  n /= 36500
+                  return s * p * n;
+              }
+
+              let output = Math.round(monthlyPayment(inputAmount, inputPercent, inputPeriod));
+
+              resultText.css({ "font-size": "13px", "display": "block" });
+              resultText.text("Վճարվող տոկոսագումարը ձեր նշված ժամկետի վերջում կկազմի " + output + currency);
+          }
+          if (inputType == 1) {
+              let monthlyPayment = (s, p, n) => {
+                  n /= 36500
+                  return s * p * n/(n*36500/30);
+              }
+
+              let output = Math.round(monthlyPayment(inputAmount, inputPercent, inputPeriod));
+
+              resultText.css({ "font-size": "13px", "display": "block" });
+              resultText.text("Վճարվող տոկոսագումարը ամսական կկազմի " + output + currency);
+          }
+
+          if (inputType == 2) {
+              let monthlyPayment = (s, p, n) => {
+                  n /= 36500
+                  return (s * p * n / (n*36500/30))*3;
+              }
+
+              let output = Math.round(monthlyPayment(inputAmount, inputPercent, inputPeriod));
+
+              resultText.css({ "font-size": "13px", "display": "block" });
+              resultText.text("Վճարվող տոկոսագումարը եռամսյակում կկազմի " + output + currency);
+          }
     }
 
    click =  true;
